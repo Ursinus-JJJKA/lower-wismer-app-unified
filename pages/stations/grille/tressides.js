@@ -3,13 +3,13 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 
-const BakedGoods = () => {
+const Sides = () => {
     const navigation = useNavigation();
     const [orderPopupVisible, setOrderPopupVisible] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
     const [cartItems, setCartItems] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
-
+    
     const handlePress = (element) => {
         navigation.navigate(element);
     };
@@ -31,8 +31,10 @@ const BakedGoods = () => {
     };
 
     const items = [
-        "Muffin",
-        "Cinnamon Bun",
+        "French Fries",
+        "Loaded Fries",
+        "Sweet Potato Fries",
+        "Onion Rings"
     ];
 
     const filteredItems = items.filter(item =>
@@ -48,7 +50,7 @@ const BakedGoods = () => {
             </View>
             <TextInput
                 style={styles.searchInput}
-                placeholder="Search Baked Goods"
+                placeholder="Search sides"
                 onChangeText={setSearchQuery}
                 value={searchQuery}
             />
@@ -165,4 +167,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default BakedGoods;
+export default Sides;

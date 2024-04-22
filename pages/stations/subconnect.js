@@ -30,8 +30,13 @@ const SubConnect = () => {
     };
 
     const foodItems = [
-        "Subs",
-        "Wraps",
+        "Baja Chicken",
+        "Meatball",
+        "Chicken Parmesan",
+        "Chicken Salad",
+        "Three Cheese",
+        "Vegetarian",
+        "Tuna Salad",
     ];
 
     return (
