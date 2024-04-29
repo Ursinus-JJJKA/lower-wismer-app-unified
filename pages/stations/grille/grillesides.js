@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 
-const Sides = () => {
+const GrilleSides = () => {
     const navigation = useNavigation();
     const [orderPopupVisible, setOrderPopupVisible] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
@@ -50,7 +50,7 @@ const Sides = () => {
             </View>
             <TextInput
                 style={styles.searchInput}
-                placeholder="Search sides"
+                placeholder="Search menu"
                 onChangeText={setSearchQuery}
                 value={searchQuery}
             />
@@ -167,4 +167,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Sides;
+export default GrilleSides;

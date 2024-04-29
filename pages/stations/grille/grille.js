@@ -45,7 +45,7 @@ const Grille = () => {
                 <TouchableOpacity style={styles.button} onPress={() => handlePress("Meals")}>
                     <Text style={styles.buttonText}>Meals</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => handlePress("Sides")}>
+                <TouchableOpacity style={styles.button} onPress={() => handlePress("Grille Sides")}>
                     <Text style={styles.buttonText}>Sides</Text>
                 </TouchableOpacity>
             </View>

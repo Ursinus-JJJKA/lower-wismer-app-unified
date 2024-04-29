@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 'react-native';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 
@@ -8,6 +8,7 @@ const Tres = () => {
     const [orderPopupVisible, setOrderPopupVisible] = useState(false);
     const [selectedFoodItem, setSelectedFoodItem] = useState(null);
     const [cartItems, setCartItems] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
 
     const handlePress = (element) => {
         navigation.navigate(element);
@@ -29,12 +30,16 @@ const Tres = () => {
         }
     };
 
-    const foodItems = [
+    const items = [
         "Burrito Bowls",
         "Burritos",
         "Quesadillas",
         "Sides",
     ];
+
+    const filteredItems = items.filter(item =>
+        item.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     return (
         <View style={styles.container}>
@@ -43,8 +48,14 @@ const Tres = () => {
                     <FontAwesome name="shopping-cart" size={20} color="white" />
                 </TouchableOpacity>
             </View>
-            <ScrollView style={styles.foodItemsContainer}>
-                {foodItems.map((item, index) => (
+            <TextInput
+                style={styles.searchInput}
+                placeholder="Search menu"
+                onChangeText={setSearchQuery}
+                value={searchQuery}
+            />
+            <ScrollView style={styles.itemsContainer}>
+                {items.map((item, index) => (
                     <TouchableOpacity
                         key={index}
                         style={styles.button}
@@ -91,7 +102,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         marginBottom: 20,
     },
-    foodItemsContainer: {
+    itemsContainer: {
         flex: 1,
         paddingHorizontal: 20,
     },
@@ -146,6 +157,13 @@ const styles = StyleSheet.create({
         fontSize: 24,
         color: 'white',
         marginBottom: 20,
+    },
+    searchInput: {
+        backgroundColor: '#f0f0f0',
+        padding: 10,
+        marginHorizontal: 20,
+        marginBottom: 10,
+        borderRadius: 10,
     },
 });
 

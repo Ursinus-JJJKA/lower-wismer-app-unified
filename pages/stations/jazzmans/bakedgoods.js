@@ -48,7 +48,7 @@ const BakedGoods = () => {
             </View>
             <TextInput
                 style={styles.searchInput}
-                placeholder="Search Baked Goods"
+                placeholder="Search menu"
                 onChangeText={setSearchQuery}
                 value={searchQuery}
             />

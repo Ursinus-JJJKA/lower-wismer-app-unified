@@ -53,7 +53,7 @@ const Meals = () => {
             </View>
             <TextInput
                 style={styles.searchInput}
-                placeholder="Search meals"
+                placeholder="Search menu"
                 onChangeText={setSearchQuery}
                 value={searchQuery}
             />

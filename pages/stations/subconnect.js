@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 'react-native';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 
 const SubConnect = () => {
     const navigation = useNavigation();
     const [orderPopupVisible, setOrderPopupVisible] = useState(false);
-    const [selectedFoodItem, setSelectedFoodItem] = useState(null);
+    const [selectedItem, setSelectedItem] = useState(null);
     const [cartItems, setCartItems] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
 
     const handlePress = (element) => {
         navigation.navigate(element);
     };
 
     const toggleOrderPopup = (item) => {
-        setSelectedFoodItem(item);
+        setSelectedItem(item);
         setOrderPopupVisible(!orderPopupVisible);
     };
 
@@ -23,13 +24,13 @@ const SubConnect = () => {
     };
 
     const addToCart = () => {
-        if (selectedFoodItem) {
-            setCartItems([...cartItems, selectedFoodItem]);
+        if (selectedItem) {
+            setCartItems([...cartItems, selectedItem]);
             closeOrderPopup();
         }
     };
 
-    const foodItems = [
+    const items = [
         "Baja Chicken",
         "Meatball",
         "Chicken Parmesan",
@@ -39,6 +40,10 @@ const SubConnect = () => {
         "Tuna Salad",
     ];
 
+    const filteredItems = items.filter(item =>
+        item.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
     return (
         <View style={styles.container}>
             <View style={styles.sideContainer}>
@@ -46,8 +51,14 @@ const SubConnect = () => {
                     <FontAwesome name="shopping-cart" size={20} color="white" />
                 </TouchableOpacity>
             </View>
-            <ScrollView style={styles.foodItemsContainer}>
-                {foodItems.map((item, index) => (
+            <TextInput
+                style={styles.searchInput}
+                placeholder="Search menu"
+                onChangeText={setSearchQuery}
+                value={searchQuery}
+            />
+            <ScrollView style={styles.itemsContainer}>
+                {items.map((item, index) => (
                     <TouchableOpacity
                         key={index}
                         style={styles.button}
@@ -60,7 +71,7 @@ const SubConnect = () => {
             {orderPopupVisible && (
                 <View style={styles.orderPopup}>
                     <View style={styles.itemBox}>
-                        <Text style={styles.popupText}>{selectedFoodItem}</Text>
+                        <Text style={styles.popupText}>{selectedItem}</Text>
                         <TouchableOpacity onPress={addToCart}>
                             <Text style={styles.addButton}>Add to Cart</Text>
                         </TouchableOpacity>
@@ -94,7 +105,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         marginBottom: 20,
     },
-    foodItemsContainer: {
+    itemsContainer: {
         flex: 1,
         paddingHorizontal: 20,
     },
@@ -149,6 +160,13 @@ const styles = StyleSheet.create({
         fontSize: 24,
         color: 'white',
         marginBottom: 20,
+    },
+    searchInput: {
+        backgroundColor: '#f0f0f0',
+        padding: 10,
+        marginHorizontal: 20,
+        marginBottom: 10,
+        borderRadius: 10,
     },
 });
 

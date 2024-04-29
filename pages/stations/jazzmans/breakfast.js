@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 'react-native';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 
@@ -8,6 +8,7 @@ const Breakfast = () => {
     const [orderPopupVisible, setOrderPopupVisible] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
     const [cartItems, setCartItems] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
 
     const handlePress = (element) => {
         navigation.navigate(element);
@@ -31,10 +32,14 @@ const Breakfast = () => {
 
     const items = [
         "Toasted Bagel",
-        "Bagel w/ Spread",
+        "Bagel with Spread",
         "English Muffin Egg Sandwich",
         "Bagel Egg Sandwich",
     ];
+
+    const filteredItems = items.filter(item =>
+        item.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     return (
         <View style={styles.container}>
@@ -43,6 +48,12 @@ const Breakfast = () => {
                     <FontAwesome name="shopping-cart" size={20} color="white" />
                 </TouchableOpacity>
             </View>
+            <TextInput
+                style={styles.searchInput}
+                placeholder="Search menu"
+                onChangeText={setSearchQuery}
+                value={searchQuery}
+            />
             <ScrollView style={styles.itemsContainer}>
                 {items.map((item, index) => (
                     <TouchableOpacity
@@ -148,6 +159,13 @@ const styles = StyleSheet.create({
         fontSize: 24,
         color: 'white',
         marginBottom: 20,
+    },
+    searchInput: {
+        backgroundColor: '#f0f0f0',
+        padding: 10,
+        marginHorizontal: 20,
+        marginBottom: 10,
+        borderRadius: 10,
     },
 });
 
