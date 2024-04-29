@@ -12,11 +12,6 @@ const Stations = () => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.sideContainer}>
-                <TouchableOpacity style={styles.iconButton} onPress={() => handlePress("Checkout")}>
-                    <FontAwesome name="shopping-cart" size={20} color="white" />
-                </TouchableOpacity>
-            </View>
             <View style={styles.screenCenter}>
                 <TouchableOpacity style={styles.button} onPress={() => handlePress("Jazzman's Cafe & Bakery")}>
                     <Text style={styles.buttonText}>Jazzman's Cafe & Bakery</Text>
@@ -47,8 +42,8 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     iconButton: {
-        backgroundColor: 'rgb(152, 0, 46)',
-        borderColor: 'rgb(251, 176, 52)',
+        backgroundColor: 'white',
+        borderColor: 'lightgrey',
         borderWidth: 3,
         borderRadius: 15,
         paddingVertical: 10,
@@ -61,8 +56,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     button: {
-        backgroundColor: 'rgb(152, 0, 46)',
-        borderColor: 'rgb(251, 176, 52)',
+        backgroundColor: 'white',
+        borderColor: 'lightgrey',
         borderWidth: 3,
         borderRadius: 15,
         width: '100%',
@@ -72,7 +67,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: 20,
-        color: 'white',
+        color: 'black',
         textAlign: 'center',
     },
 });

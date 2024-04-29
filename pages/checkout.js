@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     iconButton: {
-        backgroundColor: 'rgb(152, 0, 46)',
-        borderColor: 'rgb(251, 176, 52)',
+        backgroundColor: 'white',
+        borderColor: 'lightgrey',
         borderWidth: 3,
         borderRadius: 15,
         paddingVertical: 10,
@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     button: {
-        backgroundColor: 'rgb(152, 0, 46)',
-        borderColor: 'rgb(251, 176, 52)',
+        backgroundColor: 'white',
+        borderColor: 'lightgrey',
         borderWidth: 3,
         borderRadius: 15,
         width: '100%',

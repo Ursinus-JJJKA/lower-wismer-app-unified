@@ -3,13 +3,13 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 
-const SubConnect = () => {
+const Tres = () => {
     const navigation = useNavigation();
     const [orderPopupVisible, setOrderPopupVisible] = useState(false);
     const [selectedFoodSection, setSelectedFoodSection] = useState(null);
     const [cartItems, setCartItems] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
-    const [activeTab, setActiveTab] = useState('Sandwiches & Sides');
+    const [activeTab, setActiveTab] = useState('Meals');
 
     const handlePress = (element) => {
         navigation.navigate(element);
@@ -31,18 +31,23 @@ const SubConnect = () => {
         }
     };
 
-    const items = [
-        "Baja Chicken",
-        "Meatball",
-        "Chicken Parmesan",
-        "Chicken Salad",
-        "Three Cheese",
-        "Vegetarian",
-        "Tuna Salad",
-        "Chips",
+    const meals = [
+        "Burrito Bowls",
+        "Burritos",
+        "Quesadillas",
+        "Sides",
     ];
 
-    const filteredItems = items.filter(item => item.toLowerCase().includes(searchQuery.toLowerCase()));
+    const sides = [
+        "French Fries",
+        "Loaded Fries",
+        "Sweet Potato Fries",
+        "Onion Rings"
+    ];
+
+    const filteredMeals = meals.filter(item => item.toLowerCase().includes(searchQuery.toLowerCase()));
+    const filteredSides = sides.filter(item => item.toLowerCase().includes(searchQuery.toLowerCase()));
+
 
     return (
         <View style={styles.container}>
@@ -54,14 +59,28 @@ const SubConnect = () => {
             />
             <View style={styles.tabsContainer}>
                 <TouchableOpacity
-                    style={[styles.tabButton, activeTab === 'Sandwiches & Sides' && styles.activeTab]}
-                    onPress={() => setActiveTab('Sandwiches & Sides')}
+                    style={[styles.tabButton, activeTab === 'Meals' && styles.activeTab]}
+                    onPress={() => setActiveTab('Meals')}
                 >
-                    <Text style={styles.tabText}>Sandwiches & Sides</Text>
+                    <Text style={styles.tabText}>Meals</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={[styles.tabButton, activeTab === 'Sides' && styles.activeTab]}
+                    onPress={() => setActiveTab('Sides')}
+                >
+                    <Text style={styles.tabText}>Sides</Text>
                 </TouchableOpacity>
             </View>
             <ScrollView style={styles.itemsContainer}>
-                {(activeTab === 'Sandwiches & Sides' && filteredItems.map((item, index) => (
+                {(activeTab === 'Meals' && filteredMeals.map((item, index) => (
+                    <TouchableOpacity
+                        key={index}
+                        style={styles.button}
+                        onPress={() => toggleOrderPopup(item)}
+                    >
+                        <Text style={styles.buttonText}>{item}</Text>
+                    </TouchableOpacity>
+                ))) || (activeTab === 'Sides' && filteredSides.map((item, index) => (
                     <TouchableOpacity
                         key={index}
                         style={styles.button}
@@ -123,4 +142,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default SubConnect;
+export default Tres;

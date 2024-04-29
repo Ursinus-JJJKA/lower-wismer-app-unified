@@ -3,15 +3,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { TouchableOpacity, StyleSheet, Text } from 'react-native';
 import HomeScreen from './pages/home'
 import Stations from './pages/stations'
-import Grille from './pages/stations/grille/grille'
-import Jazzmans from './pages/stations/jazzmans/jazzmans'
+import Grille from './pages/stations/grille'
+import Jazzmans from './pages/stations/jazzmans'
 import SubConnect from './pages/stations/subconnect'
-import Tres from './pages/stations/tres/tres'
+import Tres from './pages/stations/tres'
 import Checkout from './pages/checkout'
-import Coffee from './pages/stations/jazzmans/coffee'
-import Tea from './pages/stations/jazzmans/tea'
-import Breakfast from './pages/stations/jazzmans/breakfast'
-import BakedGoods from './pages/stations/jazzmans/bakedgoods'
 import Meals from './pages/stations/grille/meals'
 import GrilleSides from './pages/stations/grille/grillesides'
 import TresSides from './pages/stations/tres/tressides'
@@ -30,10 +26,6 @@ export default function App() {
       <Stack.Screen name="SubConnections" component={SubConnect} />
       <Stack.Screen name="Tres Habeneros" component={Tres} />
       <Stack.Screen name="Checkout" component={Checkout} />
-      <Stack.Screen name="Coffee" component={Coffee} />
-      <Stack.Screen name="Tea" component={Tea} />
-      <Stack.Screen name="Breakfast" component={Breakfast} />
-      <Stack.Screen name="Baked Goods" component={BakedGoods} />
       <Stack.Screen name="Meals" component={Meals} />
       <Stack.Screen name="Grille Sides" component={GrilleSides} />
       <Stack.Screen name="Tres Sides" component={TresSides} />

@@ -127,8 +127,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    backgroundColor: 'rgb(152, 0, 46)',
-    borderColor: 'rgb(251, 176, 52)',
+    backgroundColor: 'white',
+    borderColor: 'lightgrey',
     borderWidth: 3,
     borderRadius: 15,
     paddingVertical: 10,
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     width: 100,
   },
   buttonText: {
-    color: 'white',
+    color: 'black',
     fontSize: 18,
     alignItems: 'center',
   },
