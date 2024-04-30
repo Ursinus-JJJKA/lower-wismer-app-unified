@@ -39,10 +39,9 @@ const Tres = () => {
     ];
 
     const sides = [
-        "French Fries",
-        "Loaded Fries",
-        "Sweet Potato Fries",
-        "Onion Rings"
+        "Chips & Guac",
+        "Chips & Queso",
+        "Nachos",
     ];
 
     const filteredMeals = meals.filter(item => item.toLowerCase().includes(searchQuery.toLowerCase()));
@@ -90,6 +89,9 @@ const Tres = () => {
                     </TouchableOpacity>
                 )))}
             </ScrollView>
+            <TouchableOpacity style={styles.iconButton} onPress={() => handlePress("Checkout")}>
+                <FontAwesome name="shopping-cart" size={30} color="white" />
+            </TouchableOpacity>
             {orderPopupVisible && (
                 <View style={styles.orderPopup}>
                     <View style={styles.itemBox}>
@@ -177,19 +179,30 @@ const styles = StyleSheet.create({
     closeButton: {
         width: 40,
         height: 40,
-        position: 'absolute',
         bottom: 205,
-        right: 140,
-    },    
+        right: 150,
+    },     
     addButton: {
+        backgroundColor: 'rgb(152, 0, 46)',
+        paddingVertical: 15,
+        paddingHorizontal: 120,
         fontSize: 20,
-        color: 'black',
-        marginTop: 20,
+        color: 'white',
+        fontWeight: 'bold',
+        top: 200,
     },
     popupText: {
         fontSize: 24,
         color: 'black',
         marginBottom: 20,
+    },
+    iconButton: {
+        backgroundColor: 'rgb(152, 0, 46)',
+        borderRadius: 15,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        marginBottom: 10,
+        marginHorizontal: 20,
     },
 });
 

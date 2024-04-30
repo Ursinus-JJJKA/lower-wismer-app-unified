@@ -26,6 +26,9 @@ const Stations = () => {
                     <Text style={styles.buttonText}>Tres Habeneros</Text>
                 </TouchableOpacity>
             </View>
+            <TouchableOpacity style={styles.iconButton} onPress={() => handlePress("Checkout")}>
+                <FontAwesome name="shopping-cart" size={30} color="white" />
+            </TouchableOpacity>
         </View>
     );
 };
@@ -69,6 +72,14 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'black',
         textAlign: 'center',
+    },
+    iconButton: {
+        backgroundColor: 'rgb(152, 0, 46)',
+        borderRadius: 15,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        marginBottom: 10,
+        marginHorizontal: 20,
     },
 });
 
