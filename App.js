@@ -9,6 +9,7 @@ import SubConnect from './pages/stations/subconnect'
 import Tres from './pages/stations/tres'
 import Checkout from './pages/checkout'
 import Profile from './pages/profile';
+import Payment from './pages/payment';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,7 @@ export default function App() {
       <Stack.Screen name="Tres Habeneros" component={Tres} />
       <Stack.Screen name="Checkout" component={Checkout} />
       <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="Payment" component={Payment} />
     </Stack.Navigator>
     </NavigationContainer>
   );

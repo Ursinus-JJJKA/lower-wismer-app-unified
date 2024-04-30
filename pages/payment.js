@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Checkout = () => {
+const Payment = () => {
     const navigation = useNavigation();
 
     const handlePress = (element) => {
@@ -12,17 +12,24 @@ const Checkout = () => {
     return (
         <View style={styles.container}>
             <View style={styles.secondaryContainer}>
-                <TouchableOpacity style={styles.button} onPress={() => handlePress("Jazzman's Cafe & Bakery")}>
-                    <Text style={styles.buttonTitle}>The Grille</Text>
-                    <Text style={styles.buttonText}>French Fries</Text>
+                <TouchableOpacity style={styles.button} onPress={() => handlePress("Payment")}>
+                    <Text style={styles.buttonTitle}>Dining Dollars</Text>
+                    <Text style={styles.buttonText}>Check balance</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => handlePress("The Grille")}>
-                    <Text style={styles.buttonTitle}>Tres Habeneros</Text>
-                    <Text style={styles.buttonText}>Burrito Bowl</Text>
+                <TouchableOpacity style={styles.button} onPress={() => handlePress("Payment")}>
+                    <Text style={styles.buttonTitle}>Meal Swipe</Text>
+                    <Text style={styles.buttonText}>Check balance</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={() => handlePress("Payment")}>
+                    <Text style={styles.buttonTitle}>Bear Bucks</Text>
+                    <Text style={styles.buttonText}>Check balance</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={() => handlePress("Payment")}>
+                    <Text style={styles.buttonTitle}>Credit Card</Text>
                 </TouchableOpacity>
             </View>
             <TouchableOpacity onPress={() => handlePress("Payment")}>
-                <Text style={styles.continueBtn}>Continue</Text>
+                <Text style={styles.continueBtn}>Confirm</Text>
             </TouchableOpacity>
         </View>
     );
@@ -80,4 +87,4 @@ const styles = StyleSheet.create({
     },    
 });
 
-export default Checkout;
+export default Payment;

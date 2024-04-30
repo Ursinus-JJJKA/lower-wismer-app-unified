@@ -82,7 +82,7 @@ const SubConnect = () => {
                         </TouchableOpacity>
                         <Text style={styles.popupText}>{selectedItem}</Text>
                         <TouchableOpacity onPress={addToCart}>
-                            <Text style={styles.addButton}>Add to Cart</Text>
+                            <Text style={styles.addButton}>Add to Order</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

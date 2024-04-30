@@ -32,10 +32,9 @@ const Tres = () => {
     };
 
     const meals = [
-        "Burrito Bowls",
-        "Burritos",
-        "Quesadillas",
-        "Sides",
+        "Burrito Bowl",
+        "Burrito",
+        "Quesadilla",
     ];
 
     const sides = [
@@ -100,7 +99,7 @@ const Tres = () => {
                         </TouchableOpacity>
                         <Text style={styles.popupText}>{selectedItem}</Text>
                         <TouchableOpacity onPress={addToCart}>
-                            <Text style={styles.addButton}>Add to Cart</Text>
+                            <Text style={styles.addButton}>Add to Order</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
