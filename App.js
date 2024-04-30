@@ -8,9 +8,6 @@ import Jazzmans from './pages/stations/jazzmans'
 import SubConnect from './pages/stations/subconnect'
 import Tres from './pages/stations/tres'
 import Checkout from './pages/checkout'
-import Meals from './pages/stations/grille/meals'
-import GrilleSides from './pages/stations/grille/grillesides'
-import TresSides from './pages/stations/tres/tressides'
 import Profile from './pages/profile';
 
 const Stack = createStackNavigator();
@@ -26,9 +23,6 @@ export default function App() {
       <Stack.Screen name="SubConnections" component={SubConnect} />
       <Stack.Screen name="Tres Habeneros" component={Tres} />
       <Stack.Screen name="Checkout" component={Checkout} />
-      <Stack.Screen name="Meals" component={Meals} />
-      <Stack.Screen name="Grille Sides" component={GrilleSides} />
-      <Stack.Screen name="Tres Sides" component={TresSides} />
       <Stack.Screen name="Profile" component={Profile} />
     </Stack.Navigator>
     </NavigationContainer>

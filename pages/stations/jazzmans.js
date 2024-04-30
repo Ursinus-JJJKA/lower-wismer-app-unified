@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 'react-native';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Jazzmans = () => {
     const navigation = useNavigation();
     const [orderPopupVisible, setOrderPopupVisible] = useState(false);
-    const [selectedFoodSection, setSelectedFoodSection] = useState(null);
+    const [selectedItem, setSelectedItem] = useState(null);
     const [cartItems, setCartItems] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
-    const [activeTab, setActiveTab] = useState('Coffee'); // Initial active tab
-
-    const handlePress = (element) => {
-        navigation.navigate(element);
-    };
+    const [activeTab, setActiveTab] = useState('Coffee');
 
     const toggleOrderPopup = (item) => {
-        setSelectedFoodSection(item);
+        setSelectedItem(item);
         setOrderPopupVisible(!orderPopupVisible);
     };
 
@@ -32,7 +27,8 @@ const Jazzmans = () => {
     };
 
     const coffees = [
-        "Regular/Decaf",
+        "Regular",
+        "Decaf",
         "Cappuccino",
         "Latte",
         "Mocha",
@@ -49,8 +45,10 @@ const Jazzmans = () => {
     ];
 
     const teas = [
-        "Hot/Iced Tea",
-        "Hot/Iced Tea Latte",
+        "Hot Tea",
+        "Iced Tea",
+        "Hot Tea Latte",
+        "Iced Tea Latte",
         "Chai Latte",
         "Matcha Latte",
     ];
@@ -142,6 +140,19 @@ const Jazzmans = () => {
                     </TouchableOpacity>
                 )))}
             </ScrollView>
+            {orderPopupVisible && (
+                <View style={styles.orderPopup}>
+                    <View style={styles.itemBox}>
+                        <TouchableOpacity onPress={closeOrderPopup}>
+                            <Image source={require('./x.png')} style={styles.closeButton} />
+                        </TouchableOpacity>
+                        <Text style={styles.popupText}>{selectedItem}</Text>
+                        <TouchableOpacity onPress={addToCart}>
+                            <Text style={styles.addButton}>Add to Cart</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            )}
         </View>
     );
 };
@@ -191,6 +202,44 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         marginVertical: 10,
         borderRadius: 10,
+    },
+    orderPopup: {
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    itemBox: {
+        backgroundColor: 'white',
+        borderRadius: 15,
+        position: 'absolute',
+        top: 15,
+        left: 0,
+        right: 0,
+        bottom: -10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    closeButton: {
+        width: 40,
+        height: 40,
+        position: 'absolute',
+        bottom: 205,
+        right: 140,
+    },    
+    addButton: {
+        fontSize: 20,
+        color: 'black',
+        marginTop: 20,
+    },
+    popupText: {
+        fontSize: 24,
+        color: 'black',
+        marginBottom: 20,
     },
 });
 
